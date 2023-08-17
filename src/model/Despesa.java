@@ -1,4 +1,7 @@
 package model;
+
+import exception.TextoNuloException;
+
 public class Despesa {
 	
 	private String loja;
@@ -18,6 +21,9 @@ public class Despesa {
 		return loja;
 	}
 	public void setLoja(String loja) {
+		if(loja.equals("") || loja.equals(null))
+			throw new TextoNuloException("Erro! O nome da loja está vazio!");
+		
 		this.loja = loja;
 	}
 
@@ -25,6 +31,9 @@ public class Despesa {
 		return produto;
 	}
 	public void setProduto(String produto) {
+		if(produto.equals("") || produto.equals(null))
+			throw new TextoNuloException("Erro! O nome do produto está vazio!");
+		
 		this.produto = produto;
 	}
 
