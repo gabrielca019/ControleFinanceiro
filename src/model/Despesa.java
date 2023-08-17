@@ -1,3 +1,4 @@
+package model;
 public class Despesa {
 	
 	private String loja;
