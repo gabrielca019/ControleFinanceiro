@@ -17,26 +17,44 @@ class DespesaTest {
 	}
 	
 	@Test
-	void testSetAtributoLojaVazio() {
+	void testSetLojaVazio() {
 		despesa.setLoja("");
 		
 		assertEquals("", "");
 	}
 
 	@Test
-	void testSetAtributoLojaComApenasUmaLetra() {
+	void testSetLojaComApenasUmaLetra() {
 		despesa.setLoja("L");
 		
 		assertEquals("L", despesa.getLoja());
 	}
 	
 	@Test
-	void testSetAtributoLojaComVariasLetras() {
+	void testSetLojaComVariasLetras() {
 		despesa.setLoja("Loja");
 		
 		assertEquals("Loja", despesa.getLoja());
 	}
-	
-	
 
+	@Test
+	void testSetProdutoVazio() {
+		despesa.setProduto("");
+		
+		assertEquals("", "");
+	}
+	
+	@Test
+	void testSetProdutoComApenasUmaLetra() {
+		despesa.setProduto("P");
+		
+		assertEquals("P", despesa.getLoja());
+	}
+	
+	@Test
+	void testSetProdutoComVariasLetras() {
+		despesa.setProduto("Produto");
+		
+		assertEquals("Produto", despesa.getLoja());
+	}
 }
