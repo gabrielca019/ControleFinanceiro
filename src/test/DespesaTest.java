@@ -1,10 +1,13 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import exception.TextoNuloException;
+import exception.ValorDespesaException;
 import model.Despesa;
 
 class DespesaTest {
@@ -18,9 +21,7 @@ class DespesaTest {
 	
 	@Test
 	void testSetLojaVazio() {
-		despesa.setLoja("");
-		
-		assertEquals("", "");
+		assertThrows(TextoNuloException.class, () -> despesa.setLoja(""));
 	}
 
 	@Test
@@ -39,9 +40,7 @@ class DespesaTest {
 
 	@Test
 	void testSetProdutoVazio() {
-		despesa.setProduto("");
-		
-		assertEquals("", despesa.getProduto());
+		assertThrows(TextoNuloException.class, () -> despesa.setProduto(""));
 	}
 	
 	@Test
@@ -60,16 +59,13 @@ class DespesaTest {
 	
 	@Test
 	void testSetValorMensalVazio() {
-		despesa.setValorMensal(0);
-		
-		assertEquals(0, despesa.getValorMensal(), 1);
+
+		assertThrows(ValorDespesaException.class, () -> despesa.setValorMensal(0));
 	}
 	
 	@Test
 	void testSetValorMensalNegativo() {
-		despesa.setValorMensal(-2);
-		
-		assertEquals(-2, despesa.getValorMensal(), 1);
+		assertThrows(ValorDespesaException.class, () -> despesa.setValorMensal(-2));
 	}
 	
 	@Test
