@@ -1,6 +1,7 @@
 package model;
 
 import exception.TextoNuloException;
+import exception.ValorDespesaException;
 
 public class Despesa {
 	
@@ -41,6 +42,9 @@ public class Despesa {
 		return valorMensal;
 	}
 	public void setValorMensal(double valorMensal) {
+		if(valorMensal <= 0)
+			throw new ValorDespesaException("Erro! A despesa deve ter um valor maior que zero!");
+		
 		this.valorMensal = valorMensal;
 	}
 	
