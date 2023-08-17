@@ -41,20 +41,55 @@ class DespesaTest {
 	void testSetProdutoVazio() {
 		despesa.setProduto("");
 		
-		assertEquals("", "");
+		assertEquals("", despesa.getProduto());
 	}
 	
 	@Test
 	void testSetProdutoComApenasUmaLetra() {
 		despesa.setProduto("P");
 		
-		assertEquals("P", despesa.getLoja());
+		assertEquals("P", despesa.getProduto());
 	}
 	
 	@Test
 	void testSetProdutoComVariasLetras() {
 		despesa.setProduto("Produto");
 		
-		assertEquals("Produto", despesa.getLoja());
+		assertEquals("Produto", despesa.getProduto());
+	}
+	
+	@Test
+	void testSetValorMensalVazio() {
+		despesa.setValorMensal(0);
+		
+		assertEquals(0, despesa.getValorMensal(), 1);
+	}
+	
+	@Test
+	void testSetValorMensalNegativo() {
+		despesa.setValorMensal(-2);
+		
+		assertEquals(-2, despesa.getValorMensal(), 1);
+	}
+	
+	@Test
+	void testSetValorMensalMinimo() {
+		despesa.setValorMensal(2.02);
+		
+		assertEquals(2.02, despesa.getValorMensal(), 1);
+	}
+	
+	@Test
+	void testSetValorMensalBaixo() {
+		despesa.setValorMensal(21.12);
+		
+		assertEquals(21.12, despesa.getValorMensal(), 1);
+	}
+	
+	@Test
+	void testSetValorMensalAlto() {
+		despesa.setValorMensal(2100.12);
+		
+		assertEquals(2100.12, despesa.getValorMensal(), 1);
 	}
 }
